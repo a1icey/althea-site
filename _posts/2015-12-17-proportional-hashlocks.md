@@ -1,12 +1,12 @@
 ---
 layout:     post
 title:      Proportional hashlocks
-summary:    "The proportional hashlock gives us the ability to build a sort of higher level micropayment channel that sits on top of a multihop payment which is released incrementally."
+summary:    "The proportional hashlock gives us the ability to build a higher level micropayment channel that sits on top of a multihop payment and is released incrementally."
 ---
 
-In an incentivized mesh network, some nodes will be stationary, and some will move. We can set up payment channels between the stationary nodes, and they can pay one another with those. But what about mobile nodes who may only be within range of one another for short amounts of time? A payment channel takes at least a few minutes to set up, if we're going to wait for a sufficient number of confirmations (or even longer if it's a conventional currency and we're dealing with a bank). This is why we have multihop payments. By routing a payment across several existing payment channels, we don't have to wait for a new channel to be set up.
+In an incentivized mesh network, some nodes will be stationary, and some will move. We can set up payment channels between the stationary nodes, and they can pay one another using those payment channels. But what about mobile nodes that may only be within range of another node for short amounts of time? A payment channel takes at least a few minutes to set up, if we're going to wait for a sufficient number of confirmations (or even longer if it's a conventional currency and we're dealing with a bank). This is why the Althea uses multihop payments. By routing a payment across several existing payment channels, nodes don't have to wait for a new channel to be set up.
 
-Multihop payments can result in a lot of network traffic if we don't know what route the payment will take. Depending on the payment routing protocol, there may be a search of the network for every multihop payment (RPR, a payment channel routing protocol, currently does this).
+Multihop payments can result in a lot of network traffic to determine what route the payment will take. Depending on the payment routing protocol, there may be a search of the network for every multihop payment (RPR, a payment channel routing protocol, currently does this).
 
 Instead of having smart conditions return either true or false we can have them return a fraction (see [Flying Fox](https://github.com/BumblebeeBat/FlyingFox)). The transfer amount of the hashlock is multiplied by the fraction. This way, smart conditions have fine grained control over what fraction of a payment gets transfered. This gives us the option to build more sophisticated smart conditions.
 
